@@ -1,0 +1,5 @@
+## Ignore data cache
+Data/
+
+## Ignore GDrive authenticator
+.httr-oauth
