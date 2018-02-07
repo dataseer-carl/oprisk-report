@@ -3,3 +3,4 @@ Data/
 
 ## Ignore GDrive authenticator
 .httr-oauth
+.Rproj.user
