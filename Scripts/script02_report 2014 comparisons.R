@@ -19,7 +19,7 @@ library(ggrepel)
 
 ## Order pie sections
 biz.names <- biz.df$Business[order(biz.df$`Net Loss`)] %>% as.character()
-biz.df$Business %<>% factor(levels = biz.names)
+biz.df$Business %<>% factor(levels = rev(biz.names))
 ## dataseer palette
 biz.cols <- dataseer.cols[1:length(biz.names)]
 names(biz.cols) <- rev(biz.names)
@@ -148,7 +148,8 @@ ggplot(biz.df) +
 		size = 8, alpha = 0.75
 	) +
 	geom_text_repel(
-		aes(x = Freq, y = Severity, label = Business)
+		aes(x = Freq, y = Severity, label = Business),
+		segment.colour = NA
 	) +
 	scale_colour_manual(values = biz.cols, guide = FALSE) +
 	scale_y_continuous(label = amtLab) +

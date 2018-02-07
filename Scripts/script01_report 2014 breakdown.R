@@ -49,7 +49,7 @@ ggplot(biz.df) +
 	scale_y_continuous(name = NULL) +
 	coord_polar(theta = "y") +
 	scale_fill_manual(values = biz.cols) +
-	guides(fill = guide_legend(reverse = TRUE)) + # gplot2.tidyverse.org/reference/guide_legend.html
+	guides(fill = guide_legend(reverse = TRUE)) + # ggplot2.tidyverse.org/reference/guide_legend.html
 	theme(
 		plot.background = element_blank(),
 		panel.background = element_blank(),

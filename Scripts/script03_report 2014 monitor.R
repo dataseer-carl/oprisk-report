@@ -18,6 +18,7 @@ library(googledrive)
 library(writexl)
 library(ggplot2)
 library(scales)
+library(stringr)
 
 risk.df <- CY2014.df %>% 
 	group_by(Business, `Risk Category`) %>% 
@@ -105,7 +106,56 @@ ggsave("./Plots/plot10_compare_RISKvsBIZ_bar.png")
 
 ## _Bubble grid ####
 
+lineBreak <- function(x) str_replace_all(x, c("and " = "and\n"))
+spaceBreak <- function(x) str_replace_all(x, c(" " = "\n"))
+
 ggplot(risk.df) +
 	geom_point(
-		aes(x = `Risk Category`, y = Business, size = `Net Loss`)
+		aes(y = `Risk Category`, x = Business, size = `Net Loss`),
+		colour = dataseer.cols[2]
+	) +
+	scale_size_continuous(
+		labels = amtLab, 
+		range = c(
+			1,
+			1 * sqrt(max(risk.df$`Net Loss`) / min(risk.df$`Net Loss`))
+		)
+	) +
+	scale_y_discrete(labels = lineBreak) +
+	scale_x_discrete(position = "top", labels = spaceBreak) +
+	guides(size = guide_legend(label.position = "left")) +
+	theme(
+		plot.background = element_blank(),
+		panel.background = element_rect(colour = "black", fill = NA),
+		panel.grid.major = element_line(colour = "#c5e3fb"),
+		axis.line = element_line(colour = "black"),
+		axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5),
+		axis.ticks = element_blank(),
+		legend.key = element_blank()
 	)
+ggsave("./Plots/plot11_compare_RISKvsBIZ_bubble.png")
+
+## _Heatmap ####
+
+ggplot(risk.df) +
+	geom_tile(
+		aes(y = `Risk Category`, x = Business, fill = `Recovery Rate`)
+	) +
+	scale_y_discrete(labels = lineBreak) +
+	scale_x_discrete(position = "top", labels = spaceBreak) +
+	scale_fill_continuous(
+		low = "#787c84", high = "#82f376",
+		limits = c(0.10, 0.40),
+		labels = percent
+	) +
+	guides(fill = guide_legend(label.position = "left", label.hjust = 1, reverse = TRUE)) +
+	theme(
+		plot.background = element_blank(),
+		panel.background = element_rect(colour = NA, fill = "#787c84"),
+		panel.grid.major = element_blank(),
+		axis.line = element_line(colour = "black"),
+		axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5),
+		axis.ticks = element_blank(),
+		legend.key = element_blank()
+	)
+ggsave("./Plots/plot12_compare_RISKvsBIZ_heat.png")
