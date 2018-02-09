@@ -2,6 +2,8 @@ dump.path <- "~/Data"
 
 cat("Hello World")
 
+cat("Here's a new line.")
+
 library(googledrive)
 library(magrittr)
 
