@@ -111,7 +111,7 @@ ggplot(bar2.df) +
 		aes(x = Business, y = value, fill = Business),
 		stat = "identity"
 	) +
-	facet_wrap(~ measure, scales = "free_y") +
+	facet_wrap(~ measure, scales = "free_y", ncol = 1) +
 	geom_text(
 		aes(x = Business, y = value, label = value.label, vjust = textBelow),
 		size = 3
@@ -132,7 +132,7 @@ ggplot(bar2.df) +
 		axis.text.x = element_text(angle = 90, hjust = 1),
 		axis.ticks = element_blank()
 	)
-ggsave("./Plots/plot07_compare_FREQvsSEV_bar.png")
+ggsave("./Plots/plot07_compare_FREQvsSEV_bar.png", height = 8.28, width = 5.79, units = "in")
 
 ## _Scatter ####
 
