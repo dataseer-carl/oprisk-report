@@ -53,19 +53,19 @@ From IBM Watson - Banking Loss Events
 
 | Plot | File | Script | Input data |
 |:--|:--|:--|:--|
-| Total Net Loss per Business in 2014: bar | `plot05_compare_loss_bar.png` | `script02_report 2014 comparisons.R` | `out00_total-netloss-per-biz-2014.rds` |
-| Stacked Average Net Loss of all loss events per Business in 2014: bar | `plot06_compare_avgloss_stacked.png` | `script02_report 2014 comparisons.R` | `out00_total-netloss-per-biz-2014.rds` |
-| Loss Event Frequency and Severity per Business in 2014: bar | `plot07_compare_FREQvsSEV_bar.png` | `script02_report 2014 comparisons.R` | `out00_total-netloss-per-biz-2014.rds` |
-| Loss Event Frequency and Severity per Business in 2014: scatter | `plot08_compare_FREQvsSEV_scatter.png` | `script02_report 2014 comparisons.R` | `out00_total-netloss-per-biz-2014.rds` |
+| Total Net Loss per Business in 2014: bar | `plot05_compare_loss_bar.png` | `script02_report 2014 comparisons.R` | `out00_total-netloss-per-biz-2014` |
+| Stacked Average Net Loss of all loss events per Business in 2014: bar | `plot06_compare_avgloss_stacked.png` | `script02_report 2014 comparisons.R` | `out00_total-netloss-per-biz-2014` |
+| Loss Event Frequency and Severity per Business in 2014: bar | `plot07_compare_FREQvsSEV_bar.png` | `script02_report 2014 comparisons.R` | `out00_total-netloss-per-biz-2014` |
+| Loss Event Frequency and Severity per Business in 2014: scatter | `plot08_compare_FREQvsSEV_scatter.png` | `script02_report 2014 comparisons.R` | `out00_total-netloss-per-biz-2014` |
 
 ##### Multi-category comparison
 
 | Plot | File | Script | Input data |
 |:--|:--|:--|:--|
-| Net Loss per Risk Category for each Business in 2014: bar | `plot09_compare_BIZvsRISK_bar.png` | `script03_report 2014 monitor.R` | `CY2014.rds` |
-| Net Loss per Business for each Risk Category in 2014: bar | `plot10_compare_RISKvsBIZ_bar.png` | `script03_report 2014 monitor.R` | `CY2014.rds` |
-| Net Loss per Risk Category per Business in 2014: bubble | `plot11_compare_RISKvsBIZ_bubble.png` | `script03_report 2014 monitor.R` | `CY2014.rds` |
-| Recovery Rate per Risk Category per Business in 2014: heat | `plot12_compare_RISKvsBIZ_heat.png` | `script03_report 2014 monitor.R` | `CY2014.rds` |
+| Net Loss per Risk Category for each Business in 2014: bar | `plot09_compare_BIZvsRISK_bar.png` | `script03_report 2014 monitor.R` | `out01_risk-summary-per-biz-2014` |
+| Net Loss per Business for each Risk Category in 2014: bar | `plot10_compare_RISKvsBIZ_bar.png` | `script03_report 2014 monitor.R` | `out01_risk-summary-per-biz-2014` |
+| Net Loss per Risk Category per Business in 2014: bubble | `plot11_compare_RISKvsBIZ_bubble.png` | `script03_report 2014 monitor.R` | `out01_risk-summary-per-biz-2014` |
+| Recovery Rate per Risk Category per Business in 2014: heat | `plot12_compare_RISKvsBIZ_heat.png` | `script03_report 2014 monitor.R` | `out01_risk-summary-per-biz-2014` |
 
 ### Loss trends
 
@@ -79,4 +79,4 @@ From IBM Watson - Banking Loss Events
 
 | Plot | File | Script | Input data |
 |:--|:--|:--|:--|
-| Daily Net Loss in 2014: line | `plot13_trend_netloss_line.png` | `script04_report 2014 trend.R` | `CY2014.rds` |
+| Daily Net Loss in 2014: line | `plot13_trend_netloss_line.png` | `script04_report 2014 trend.R` | `out02_daily-net-loss-2014` |
