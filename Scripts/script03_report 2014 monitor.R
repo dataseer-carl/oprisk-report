@@ -19,6 +19,8 @@ library(writexl)
 library(ggplot2)
 library(scales)
 library(stringr)
+library(XLConnect)
+library(tidyr)
 
 risk.df <- CY2014.df %>% 
 	group_by(Business, `Risk Category`) %>% 
@@ -42,6 +44,15 @@ saveRDS(risk.df, risk.rds)
 drive_upload(risk.rds, paste0(stage.path, "/"))
 
 write_xlsx(risk.df, path = risk.xlsx)
+# add wide format
+wide.xl <- loadWorkbook(risk.xlsx)
+risk.wide <- risk.df %>% 
+	select(Business, `Risk Category`, `Net Loss`) %>% 
+	spread("Risk Category", "Net Loss", fill = 0)
+renameSheet(wide.xl, "Sheet1", "Long") # writexl cannot specify sheet names
+createSheet(wide.xl, "Wide")
+writeWorksheet(wide.xl, risk.wide, "Wide")
+saveWorkbook(wide.xl); rm(wide.xl)
 drive_upload(risk.xlsx, paste0(stage.path, "/"))
 
 ## _Bar ####
