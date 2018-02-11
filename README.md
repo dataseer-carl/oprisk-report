@@ -32,11 +32,11 @@ From IBM Watson - Banking Loss Events
 
 | Plot | File | Script | Input data |
 |:--|:--|:--|:--|
-| Breakdown of 2014 Net Loss per Business: pie | `plot00_share_pie.png` | `script01_report 2014 breakdown.R` | `CY2014.rds` |
-| Breakdown of 2014 Net Loss per Business: bar | `plot01_share_bar.png` | `script01_report 2014 breakdown.R` | `CY2014.rds` |
-| Breakdown of 2014 Net Loss per Business: donut | `plot02_share_donut.png` | `script01_report 2014 breakdown.R` | `CY2014.rds` |
-| Breakdown of 2014 Net Loss per Business: waffle | `plot03_share_waffle.png` | `script01_report 2014 breakdown.R` | `CY2014.rds` |
-| Breakdown of 2014 Net Loss per Business: treemap | `plot04_share_treemap.png` | `script01_report 2014 breakdown.R` | `CY2014.rds` |
+| Breakdown of 2014 Net Loss per Business: pie | `plot00_share_pie.png` | `script01_report 2014 breakdown.R` | `out00_total-netloss-per-biz-2014` |
+| Breakdown of 2014 Net Loss per Business: bar | `plot01_share_bar.png` | `script01_report 2014 breakdown.R` | `out00_total-netloss-per-biz-2014` |
+| Breakdown of 2014 Net Loss per Business: donut | `plot02_share_donut.png` | `script01_report 2014 breakdown.R` | `out00_total-netloss-per-biz-2014` |
+| Breakdown of 2014 Net Loss per Business: waffle | `plot03_share_waffle.png` | `script01_report 2014 breakdown.R` | `out00_total-netloss-per-biz-2014` |
+| Breakdown of 2014 Net Loss per Business: treemap | `plot04_share_treemap.png` | `script01_report 2014 breakdown.R` | `out00_total-netloss-per-biz-2014` |
 
 ### Loss event profile
 
@@ -66,3 +66,17 @@ From IBM Watson - Banking Loss Events
 | Net Loss per Business for each Risk Category in 2014: bar | `plot10_compare_RISKvsBIZ_bar.png` | `script03_report 2014 monitor.R` | `CY2014.rds` |
 | Net Loss per Risk Category per Business in 2014: bubble | `plot11_compare_RISKvsBIZ_bubble.png` | `script03_report 2014 monitor.R` | `CY2014.rds` |
 | Recovery Rate per Risk Category per Business in 2014: heat | `plot12_compare_RISKvsBIZ_heat.png` | `script03_report 2014 monitor.R` | `CY2014.rds` |
+
+### Loss trends
+
+#### Data
+
+| Data File | Description | Columns | Rows | Input Data | Data Processing Scripts | csv Data File | xlsx Data File | R Data File |
+|:--|:--|--:|--:|:--|:--|:--|:--|:--|
+| `out02_daily-net-loss-2014` | 2014 daily net loss | 2 columns | 110 rows | `CY2014.rds` | `script04_report 2014 trend.R` |  | [`out02_daily-net-loss-2014.csv`](https://drive.google.com/open?id=1FYaENUD2XO8uG7f4TOUcvKvG2KSBwgmO) |  |
+
+#### Plots
+
+| Plot | File | Script | Input data |
+|:--|:--|:--|:--|
+| Daily Net Loss in 2014: line | `plot13_trend_netloss_line.png` | `script04_report 2014 trend.R` | `CY2014.rds` |
