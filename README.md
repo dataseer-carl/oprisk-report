@@ -80,4 +80,4 @@ From IBM Watson - Banking Loss Events
 | Plot | File | Script | Input data |
 |:--|:--|:--|:--|
 | Daily Net Loss in 2014: line | `plot13_trend_netloss_line.png` | `script04_report 2014 trend.R` | `out02_daily-net-loss-2014` |
-| Daily Net Loss in 2014: calendar | `plot14_trend_netloss_calendar.png` | `script04_report 2014 trend.R` | `out02_daily-net-loss-2014` |
+| Daily Net Loss in 2014: calendar | `plot14_trend_netloss_calendar.png` | `script04_report 2014 trend.R` | `out03_daily-net-loss-2014_calendar` |
