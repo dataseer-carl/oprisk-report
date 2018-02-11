@@ -124,9 +124,8 @@ $(document).ready(function () {
 <p>From IBM Watson - Banking Loss Events</p>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<p><code>data://</code> pertains to <code>~/Data/</code> in GDrive that is serving as data stage. Currently it is hosted in Carl Calub’s GDrive.</p>
-<div id="raw" class="section level3">
-<h3>Raw</h3>
+<div id="sources" class="section level3">
+<h3>Sources</h3>
 <table style="width:33%;">
 <colgroup>
 <col width="5%"></col>
@@ -157,9 +156,10 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
+<p><code>data://</code> pertains to <code>~/Data/</code> in GDrive that is serving as data stage. Currently it is hosted in Carl Calub’s GDrive.</p>
 </div>
-<div id="processed" class="section level3">
-<h3>Processed</h3>
+<div id="loaded" class="section level3">
+<h3>Loaded</h3>
 <table style="width:39%;">
 <colgroup>
 <col width="5%"></col>
@@ -194,8 +194,109 @@ $(document).ready(function () {
 </tbody>
 </table>
 </div>
-<div id="report" class="section level3">
-<h3>Report</h3>
+</div>
+<div id="output" class="section level2">
+<h2>Output</h2>
+<div id="loss-breakdown" class="section level3">
+<h3>Loss breakdown</h3>
+<div id="data-1" class="section level4">
+<h4>Data</h4>
+<table style="width:50%;">
+<colgroup>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Data File</th>
+<th align="left">Description</th>
+<th align="right">Columns</th>
+<th align="right">Rows</th>
+<th align="left">Input Data</th>
+<th align="left">Data Processing Scripts</th>
+<th align="left">csv Data File</th>
+<th align="left">xlsx Data File</th>
+<th align="left">R Data File</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>out00_total-netloss-per-biz-2014</code></td>
+<td align="left">2014 summary per business for all regions and business lines</td>
+<td align="right">5 columns</td>
+<td align="right">7 rows</td>
+<td align="left"><code>CY2014.rds</code></td>
+<td align="left"><code>script01_report 2014 breakdown.R</code></td>
+<td align="left"></td>
+<td align="left"><a href="https://drive.google.com/open?id=1aGvbdf3jHys3x-1sDUwk5ji528-Uf0qP"><code>out00_total-netloss-per-biz-2014.xlsx</code></a></td>
+<td align="left"><a href="https://drive.google.com/open?id=18MS20CjPY9NFrNhfXvq-ynCY2flyVirj"><code>out00_total-netloss-per-biz-2014.rds</code></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="plots" class="section level4">
+<h4>Plots</h4>
+<table style="width:22%;">
+<colgroup>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Plot</th>
+<th align="left">File</th>
+<th align="left">Script</th>
+<th align="left">Input data</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Breakdown of 2014 Net Loss per Business: pie</td>
+<td align="left"><code>plot00_share_pie.png</code></td>
+<td align="left"><code>script01_report 2014 breakdown.R</code></td>
+<td align="left"><code>CY2014.rds</code></td>
+</tr>
+<tr class="even">
+<td align="left">Breakdown of 2014 Net Loss per Business: bar</td>
+<td align="left"><code>plot01_share_bar.png</code></td>
+<td align="left"><code>script01_report 2014 breakdown.R</code></td>
+<td align="left"><code>CY2014.rds</code></td>
+</tr>
+<tr class="odd">
+<td align="left">Breakdown of 2014 Net Loss per Business: donut</td>
+<td align="left"><code>plot02_share_donut.png</code></td>
+<td align="left"><code>script01_report 2014 breakdown.R</code></td>
+<td align="left"><code>CY2014.rds</code></td>
+</tr>
+<tr class="even">
+<td align="left">Breakdown of 2014 Net Loss per Business: waffle</td>
+<td align="left"><code>plot03_share_waffle.png</code></td>
+<td align="left"><code>script01_report 2014 breakdown.R</code></td>
+<td align="left"><code>CY2014.rds</code></td>
+</tr>
+<tr class="odd">
+<td align="left">Breakdown of 2014 Net Loss per Business: treemap</td>
+<td align="left"><code>plot04_share_treemap.png</code></td>
+<td align="left"><code>script01_report 2014 breakdown.R</code></td>
+<td align="left"><code>CY2014.rds</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="loss-event-profile" class="section level3">
+<h3>Loss event profile</h3>
+<div id="data-2" class="section level4">
+<h4>Data</h4>
 <table style="width:50%;">
 <colgroup>
 <col width="5%"></col>
@@ -247,9 +348,10 @@ $(document).ready(function () {
 </tbody>
 </table>
 </div>
-</div>
-<div id="plots" class="section level2">
-<h2>Plots</h2>
+<div id="plots-1" class="section level4">
+<h4>Plots</h4>
+<div id="multi-metric-comparison" class="section level5">
+<h5>Multi-metric comparison</h5>
 <table style="width:22%;">
 <colgroup>
 <col width="5%"></col>
@@ -267,78 +369,69 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Breakdown of 2014 Net Loss per Business: pie</td>
-<td align="left"><code>plot00_share_pie.png</code></td>
-<td align="left"><code>script01_report 2014 breakdown.R</code></td>
-<td align="left"><code>CY2014.rds</code></td>
-</tr>
-<tr class="even">
-<td align="left">Breakdown of 2014 Net Loss per Business: bar</td>
-<td align="left"><code>plot01_share_bar.png</code></td>
-<td align="left"><code>script01_report 2014 breakdown.R</code></td>
-<td align="left"><code>CY2014.rds</code></td>
-</tr>
-<tr class="odd">
-<td align="left">Breakdown of 2014 Net Loss per Business: donut</td>
-<td align="left"><code>plot02_share_donut.png</code></td>
-<td align="left"><code>script01_report 2014 breakdown.R</code></td>
-<td align="left"><code>CY2014.rds</code></td>
-</tr>
-<tr class="even">
-<td align="left">Breakdown of 2014 Net Loss per Business: waffle</td>
-<td align="left"><code>plot03_share_waffle.png</code></td>
-<td align="left"><code>script01_report 2014 breakdown.R</code></td>
-<td align="left"><code>CY2014.rds</code></td>
-</tr>
-<tr class="odd">
-<td align="left">Breakdown of 2014 Net Loss per Business: treemap</td>
-<td align="left"><code>plot04_share_treemap.png</code></td>
-<td align="left"><code>script01_report 2014 breakdown.R</code></td>
-<td align="left"><code>CY2014.rds</code></td>
-</tr>
-<tr class="even">
 <td align="left">Total Net Loss per Business in 2014: bar</td>
 <td align="left"><code>plot05_compare_loss_bar.png</code></td>
 <td align="left"><code>script02_report 2014 comparisons.R</code></td>
 <td align="left"><code>out00_total-netloss-per-biz-2014.rds</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Stacked Average Net Loss of all loss events per Business in 2014: bar</td>
 <td align="left"><code>plot06_compare_avgloss_stacked.png</code></td>
 <td align="left"><code>script02_report 2014 comparisons.R</code></td>
 <td align="left"><code>out00_total-netloss-per-biz-2014.rds</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Loss Event Frequency and Severity per Business in 2014: bar</td>
 <td align="left"><code>plot07_compare_FREQvsSEV_bar.png</code></td>
 <td align="left"><code>script02_report 2014 comparisons.R</code></td>
 <td align="left"><code>out00_total-netloss-per-biz-2014.rds</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Loss Event Frequency and Severity per Business in 2014: scatter</td>
 <td align="left"><code>plot08_compare_FREQvsSEV_scatter.png</code></td>
 <td align="left"><code>script02_report 2014 comparisons.R</code></td>
 <td align="left"><code>out00_total-netloss-per-biz-2014.rds</code></td>
 </tr>
-<tr class="even">
+</tbody>
+</table>
+</div>
+<div id="multi-category-comparison" class="section level5">
+<h5>Multi-category comparison</h5>
+<table style="width:22%;">
+<colgroup>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Plot</th>
+<th align="left">File</th>
+<th align="left">Script</th>
+<th align="left">Input data</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
 <td align="left">Net Loss per Risk Category for each Business in 2014: bar</td>
 <td align="left"><code>plot09_compare_BIZvsRISK_bar.png</code></td>
 <td align="left"><code>script03_report 2014 monitor.R</code></td>
 <td align="left"><code>CY2014.rds</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Net Loss per Business for each Risk Category in 2014: bar</td>
 <td align="left"><code>plot10_compare_RISKvsBIZ_bar.png</code></td>
 <td align="left"><code>script03_report 2014 monitor.R</code></td>
 <td align="left"><code>CY2014.rds</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Net Loss per Risk Category per Business in 2014: bubble</td>
 <td align="left"><code>plot11_compare_RISKvsBIZ_bubble.png</code></td>
 <td align="left"><code>script03_report 2014 monitor.R</code></td>
 <td align="left"><code>CY2014.rds</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Recovery Rate per Risk Category per Business in 2014: heat</td>
 <td align="left"><code>plot12_compare_RISKvsBIZ_heat.png</code></td>
 <td align="left"><code>script03_report 2014 monitor.R</code></td>
@@ -346,6 +439,9 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
 </div>
 </div>
 

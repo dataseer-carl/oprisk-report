@@ -53,7 +53,6 @@ amtLab <- function(x){
 	return(temp.lab)
 }
 
-
 ## Order bars
 biz.names <- biz.df$Business[order(biz.df$`Net Loss`)] %>% as.character()
 risk.df$Business %<>% factor(levels = rev(biz.names))
