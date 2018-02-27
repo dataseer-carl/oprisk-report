@@ -34,6 +34,8 @@ library(readxl)
 excel_sheets(CY.path) # Only 1 sheet: Bankwide
 events.df <- read_excel(CY.path, sheet = "Bankwide")
 
+## Wrangle ####
+
 library(dplyr)
 
 biz.df <- events.df %>% 
@@ -62,7 +64,9 @@ risk.df <- events.df %>%
 		Recovery.Rate = Recovery.Amount / Estimated.Gross.Loss,
 		Severity = Net.Loss / Freq
 	)
-	
+
+## Report ####
+
 library(tidyr)
 
 risk.report.netloss <- risk.df %>% 
@@ -77,6 +81,8 @@ risk.report.sev <- risk.df %>%
 	select(Business, `Risk Category`, Severity) %>% 
 	spread(`Risk Category`, Severity, fill = 0)
 
+## Export ####
+
 library(XLConnect)
 
 risk.file <- file.path(local.path, "oprisk measures 2013.xlsx")
@@ -90,3 +96,5 @@ writeWorksheet(risk.xl, risk.report.sev, "Event Severity")
 saveWorkbook(risk.xl)
 
 drive_upload(risk.file, paste0(data.path, "/"))
+
+## Viz ####

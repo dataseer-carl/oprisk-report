@@ -59,6 +59,17 @@ From IBM Watson - Banking Loss Events
 | Stacked Average Net Loss of all loss events per Business in 2014: bar | `plot06_compare_avgloss_stacked.png` | `script02_report 2014 comparisons.R` | `out00_total-netloss-per-biz-2014` |
 | Loss Event Frequency and Severity per Business in 2014: bar | `plot07_compare_FREQvsSEV_bar.png` | `script02_report 2014 comparisons.R` | `out00_total-netloss-per-biz-2014` |
 | Loss Event Frequency and Severity per Business in 2014: scatter | `plot08_compare_FREQvsSEV_scatter.png` | `script02_report 2014 comparisons.R` | `out00_total-netloss-per-biz-2014` |
+| Net Loss per Business in 2014 | `Area Chart.png` | c/o @Jay |  |
+| Net Loss and Loss Event Profile per Business in 2014 | `Bubble Chart.png` | c/o @Jay |  |
+| Net Loss per Risk Category per Business in 2014: bubble | `Bubble Grid.png` | c/o @Jay |  |
+| Net Loss per Risk Category per Business in 2014: wide table | `Multi-Category Data.png` | c/o @Jay |  |
+| Net Loss per Business per Risk Category in 2014: bar | `Small Multiple.png` | c/o @Jay |  |
+| Loss Event profile per Business in 2014 | `Sparse Scatter with Ref Lines.png` | c/o @Jay |  |
+| Net Loss per Business per Risk Category in 2014: tilemap | `Tilemap (2).png` | c/o @Jay |  |
+| Net Loss per Business per Risk Category in 2014: long table | `Treemap Data.png` | c/o @Jay |  |
+| Net Loss per Business per Risk Category in 2014: treemap | `Treemap.png` | c/o @Jay |  |
+| Net Loss per Business in 2014: table | `Viz Parts Data.png` | c/o @Jay |  |
+
 
 ##### Multi-category comparison
 
