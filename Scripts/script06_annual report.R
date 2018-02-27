@@ -27,42 +27,66 @@ local.path <- "./Data"
 
 ## Load ####
 
-CY2013.path <- file.path(local.path, "CY2013.xlsx")
+CY.path <- file.path(local.path, "CY2013.xlsx")
 
 library(readxl)
 
-excel_sheets(CY2013.path) # Only 1 sheet: Bankwide
-data.df <- read_excel(CY2013.path, sheet = "Bankwide")
+excel_sheets(CY.path) # Only 1 sheet: Bankwide
+events.df <- read_excel(CY.path, sheet = "Bankwide")
 
-# Archive ####
+library(dplyr)
 
-biz.df <- CY2014.df %>% 
+biz.df <- events.df %>% 
 	group_by(Business) %>% 
 	summarise(
-		Freq = n(), # Assumes unique entry per loss event
-		`Estimated Gross Loss` = sum(`Estimated Gross Loss`),
-		`Recovery Amount` = sum(`Recovery Amount`),
-		`Net Loss` = sum(`Net Loss`)
+		Estimated.Gross.Loss = sum(`Estimated Gross Loss`),
+		Recovery.Amount = sum(`Recovery Amount`),
+		Net.Loss = sum(`Net Loss`),
+		Freq = n()
+	) %>% 
+	mutate(
+		Recovery.Rate = Recovery.Amount / Estimated.Gross.Loss,
+		Severity = Net.Loss / Freq
 	)
-biz.df %<>% mutate(Severity = `Net Loss` / Freq)
 
-
-risk.df <- CY2014.df %>% 
+risk.df <- events.df %>% 
 	group_by(Business, `Risk Category`) %>% 
 	summarise(
-		Freq = n(), # Assumes unique events
-		`Gross Loss` = sum(`Estimated Gross Loss`),
-		`Recovery Amount` = sum(`Recovery Amount`),
-		`Net Loss` = sum(`Net Loss`)
+		Estimated.Gross.Loss = sum(`Estimated Gross Loss`),
+		Recovery.Amount = sum(`Recovery Amount`),
+		Net.Loss = sum(`Net Loss`),
+		Freq = n()
 	) %>% 
 	ungroup() %>% 
 	mutate(
-		`Recovery Rate` = `Recovery Amount` / `Gross Loss`,
-		Severity = `Net Loss` / Freq
+		Recovery.Rate = Recovery.Amount / Estimated.Gross.Loss,
+		Severity = Net.Loss / Freq
 	)
+	
+library(tidyr)
 
-rawDaily.df <- CY2014.df %>% 
-	group_by(`Occurrence Start Date`) %>% 
-	summarise(
-		`Net Loss` = sum(`Net Loss`)
-	)
+risk.report.netloss <- risk.df %>% 
+	select(Business, `Risk Category`, Net.Loss) %>% 
+	spread(`Risk Category`, Net.Loss, fill = 0)
+
+risk.report.freq <- risk.df %>% 
+	select(Business, `Risk Category`, Freq) %>% 
+	spread(`Risk Category`, Freq, fill = 0)
+
+risk.report.sev <- risk.df %>% 
+	select(Business, `Risk Category`, Severity) %>% 
+	spread(`Risk Category`, Severity, fill = 0)
+
+library(XLConnect)
+
+risk.file <- file.path(local.path, "oprisk measures 2013.xlsx")
+risk.xl <- loadWorkbook(risk.file, create = TRUE)
+createSheet(risk.xl, "Net Loss")
+writeWorksheet(risk.xl, risk.report.netloss, "Net Loss")
+createSheet(risk.xl, "Event Frequency")
+writeWorksheet(risk.xl, risk.report.freq, "Event Frequency")
+createSheet(risk.xl, "Event Severity")
+writeWorksheet(risk.xl, risk.report.sev, "Event Severity")
+saveWorkbook(risk.xl)
+
+drive_upload(risk.file, paste0(data.path, "/"))

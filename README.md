@@ -28,6 +28,7 @@ From IBM Watson - Banking Loss Events
 | Data File | Description | Columns | Rows | Input Data | Data Processing Scripts | csv Data File | xlsx Data File | R Data File |
 |:--|:--|--:|--:|:--|:--|:--|:--|:--|
 | `out00_total-netloss-per-biz-2014` | 2014 summary per business for all regions and business lines | 5 columns | 7 rows | `CY2014.rds` | `script01_report 2014 breakdown.R` |  | [`out00_total-netloss-per-biz-2014.xlsx`](https://drive.google.com/open?id=1aGvbdf3jHys3x-1sDUwk5ji528-Uf0qP) | [`out00_total-netloss-per-biz-2014.rds`](https://drive.google.com/open?id=18MS20CjPY9NFrNhfXvq-ynCY2flyVirj) |
+| CY2013 OpRisk measures matrices | Total Net Loss, Total Event Frequency, and Average Event Severity for each Business Unit-Risk Category pair |  |  | `CY2013.xlsx` | `script06_annual report.R` |  | [`oprisk measures 2013.xlsx`](https://drive.google.com/open?id=1iFDo_se7-HRTkaba-ugfJHkVqg7xUWVv) |  |
 
 #### Plots
 
