@@ -15,6 +15,7 @@ From IBM Watson - Banking Loss Events
 
 | Dataset | Data File | Description | Columns | Rows | Input Data | Data Processing Scripts |
 |:--|:--|:--|--:|--:|:--|:--|
+| 2013 Loss Events | `CY2013.rds` | 2013 loss events for all regions and business lines | 12 columns | 391 rows | `CY2013.xlsx` | `script00_ingest CY2014.R` |
 | 2014 Loss Events | `CY2014.rds` | 2014 loss events for all regions and business lines | 12 columns | 135 rows | `CY2014.xlsx` | `script00_ingest CY2014.R` |
 
 
