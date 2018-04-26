@@ -94,3 +94,4 @@ From IBM Watson - Banking Loss Events
 |:--|:--|:--|:--|
 | Daily Net Loss in 2014: line | `plot13_trend_netloss_line.png` | `script04_report 2014 trend.R` | `out02_daily-net-loss-2014` |
 | Daily Net Loss in 2014: calendar | `plot14_trend_netloss_calendar.png` | `script04_report 2014 trend.R` | `out03_daily-net-loss-2014_calendar` |
+| Net Loss vs Business | d3 Visualization (horizontal bar chart) | [`bl.ocks.org`](http://bl.ocks.org/robin-ramos/afdf931e07a9b11f471132e00a272893) | `out01_risk-summary-per-biz-2014` |
